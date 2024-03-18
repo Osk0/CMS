@@ -7,13 +7,33 @@
 </head>
 <body>
 <?php 
+    if(isset($_REQUEST['email']) && isset($_REQUEST['password']) ){
+        $email = $_REQUEST['email'];
+        $password = $_REQUEST['password'];
+    
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    
+        $db = new mysqli('localhost', 'root', '', 'cms');
+        $q = $db->prepare("SELECT FROM user WHERE email = ? LIMIT 1");
+        $q->bind_param("s", $email);
+        $q->execute();
+        $result = $q->get_result();
+    
+        $userRow = $result->fetch_assoc();
+        if($userRow == null) {
+            echo "Błędny login lub hasło <br>";
+        } else {
+            if(password_verify($password, $userRow['password'])) {
+                echo "Zalogowano poprawnie <br>";
+            } else {
+                echo "Błędny login lub hasło <br>";
+            }
+        }
+    
+        var_dump($userRow);
+    }
+   
 
-    $email = $_REQUEST('email');
-
-    //$db = new mysqli('localhost', 'root', '', 'cms');
-    //$q = $db->prepare("SELECT post.id, post.imgUrl, post.title, post.timestamp, user.login FROM `post` INNER JOIN user ON post.author = user.ID;");
-    //$q->execute();
-    //$result = $q->get_result();
 ?>
 <form action="index.php" method="get">
 <label for="emailInput">Email:</label>
