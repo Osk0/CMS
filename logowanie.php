@@ -8,7 +8,7 @@
 <body>
 <?php 
 
-    $email = $_REQUEST{'email'};
+    $email = $_REQUEST('email');
 
     //$db = new mysqli('localhost', 'root', '', 'cms');
     //$q = $db->prepare("SELECT post.id, post.imgUrl, post.title, post.timestamp, user.login FROM `post` INNER JOIN user ON post.author = user.ID;");
