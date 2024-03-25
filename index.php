@@ -29,7 +29,15 @@
             </div>';
         echo '</div>';
     }
+  
+        
+    
+
+    
     ?>
+   
+
+
          <!--<div class="post-block">
             <h2>Post title</h2>
             <h3 class="post-author">Autor</h3>
