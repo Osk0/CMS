@@ -1,3 +1,8 @@
+<?php 
+session_start();
+require("./class/user.class.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,28 +15,24 @@
     <?php if(isset($_REQUEST['email'])) : ?>
 
         <?php
-        $email = $_REQUEST['email'];
-        if($_REQUEST['password'] != $_REQUEST['passwordRepeat'])
-        die("Hasła niezgodne");
-        $passwd = $_REQUEST['password'];
-        $passwordHash = password_hash($passwd, PASSWORD_ARGON2I);
-       
-      
-        $db = new mysqli("localhost", "root", "", "cms");
-        $sql = "INSERT INTO user (email, password) VALUES (?, ?)";
-        $q = $db->prepare($sql);
-        $q->bind_param("ss", $email, $passwordHash);
-        $success = $q->execute();
-        if(!$success)
-        die("Błąd przy próbie założenia konta");
+        $result = User::Register($_REQUEST['email'], $_REQUEST['password']);
         ?>
     <div class="row mt-5">
     <div class="col-6 offset-4">
-    <h1 class="text-center">Konto założone</h1>
+    <h1 class="text-center">
+        <?php 
+        if($result) 
+        echo "Udało się założyć konto";
+    else 
+        echo "Nastąpił błąd";
+    
+    
+        ?>
+    </h1>
     <div class="text-center">
         <a href="index.php">Powrót do strony</a>
     </div>
-
+        <a href="rejestracja.php">
     </div>
     </div>
 
