@@ -9,6 +9,7 @@ require("./class/user.class.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rejestracja</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -39,19 +40,23 @@ require("./class/user.class.php");
         <?php else : ?>
 
 
-        <div class="row mt-5">
+        <div class="row mt-5" style="border: 1px solid #ccc; padding: 20px; text-align: center;">
         <div class="col-6 offset-4">
         <h1 class="text-center">Zarejestruj się </h1>
     
 <form action="rejestracja.php" method="post">
-<label class="form-label mt-3" for="emailInput">Email:</label>
-<input type="email" name="email" id="emailInput">
-<label class="form-label mt-3" for="passwordInput">Hasło:</label>
-<input  type="password" name="password" id="passwordInput">
-<label class="form-label mt-3" for="passwordRepeat">Powtórz Hasło:</label>
-<input type="password" name="passwordRepeat" id="passwordRepeatInput">
-<input type="submit" value="Zarejestruj się">
-<input type="hidden" name="action" value="register">
+<label class="form-label mt-3" for="emailInput">Email:</label> 
+<input type="email" name="email" id="emailInput" style="margin-top: 10px;"> <br>
+<label class="form-label mt-3" for="passwordInput">Hasło:</label> 
+<input  type="password" name="password" id="passwordInput" style="margin-top: 10px;"> <br>
+<label class="form-label mt-3" for="passwordRepeat">Powtórz Hasło:</label> 
+<input type="password" name="passwordRepeat" id="passwordRepeatInput"  style="margin-top: 10px;"> <br> 
+<input type="submit" value="Zarejestruj się" style="padding: 5px; font-size: 1em; margin-top: 10px;">
+<input type="hidden" name="action" value="register"> <br>
+<div class="form-group">
+    <label for="login">Masz już konto?</label>
+    <a href="logowanie.php" class="btn-link">Zaloguj się</a>
+</div>
 
 </form>
 </div>

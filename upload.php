@@ -44,18 +44,25 @@ if(!empty($_POST)) {
     <title>Dodaj nowy post</title>
 </head>
 <body>
+    <div id="upload" style="border: 1px solid #ccc; padding: 20px; text-align: center;">
+
+    
+<header >
+    <h1>Dodaj nowy post</h1>
+</header>
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <label for="postTitleInput">Tytuł posta: </label>
-        <input type="text" name="postTitle" id="postTitleInput">
+        <input type="text" name="postTitle" id="postTitleInput" style="margin-top: 10px;">
         <br>
 
         <label for="postDescriptionInput">Opis posta:</label>
-        <input type="text" name="postDescription" id="postDescriptionInput">
+        <input type="text" name="postDescription" id="postDescriptionInput" style="margin-top: 10px;">
         <br>
         <label for="fileInput">Obrazek: </label>
-        <input type="file" name="file" id="fileInput">
+        <input type="file" name="file" id="fileInput" style="margin-top: 10px;"> 
         <br>
-        <input type="submit" value="Wyślij!">
+        <input type="submit" value="Wyślij!" style="margin-top: 10px;">
     </form>
+    </div>
 </body>
 </html>
